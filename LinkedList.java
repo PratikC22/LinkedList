@@ -12,8 +12,6 @@ public class LinkedList<T> {
 		Node<T> newNode = new Node<T>();
 		newNode.value = value;
 		newNode.next = null;
-		
-		// If head is null, create a new head.
 		if (head == null) {
 			head = newNode;
 		} else {
@@ -79,5 +77,18 @@ public class LinkedList<T> {
 			Node<T> newHead = head.next;
 			head = newHead;
 		}
+	}
+
+	/**
+	 * Removes the last element from this list, if it is present
+	 */
+	public void popLast() {
+		Node<T> currNode = head;
+		Node<T> prevNode = head;
+		while (currNode.next != null) {
+			prevNode = currNode;
+			currNode = currNode.next;
+		}
+		prevNode.next = null;
 	}
 }
